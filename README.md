@@ -46,14 +46,14 @@ To execute the project, the following Python libraries are needed
 ## Workflow and execution instruction
 
 To run the project, follow the steps here reported
-* **Make sure to execute all commands from the project's root directory**
+* NB: **Make sure to execute all commands from the project's root directory**
 
 ### Initial data preparation:
 
 
 
-1.1) **Raw Data (.pkl):** Place the `.pkl` file containing the raw fill time series in the `data/raw/` folder. (e.g.,`path/to/project/data/raw/original_data.pkl`). These data won't be loaded on the GitHub repository, as they are too large. Only files comprehending the necessary data would be included
-1.2) **Manual Labels:** Create the `manual_fill_labels.csv` file in the `data/raw/` folder with the manual fill labels. The file must have `Fill_ID` and `Is_Valid` columns (0 for not valid, 1 for valid) and use a comma (`,`) as a separator.
+1:  **Raw Data (.pkl):** Place the `.pkl` file containing the raw fill time series in the `data/raw/` folder. (e.g.,`path/to/project/data/raw/original_data.pkl`). These data won't be loaded on the GitHub repository, as they are too large. Only files comprehending the necessary data would be included
+2:  **Manual Labels:** Create the `manual_fill_labels.csv` file in the `data/raw/` folder with the manual fill labels. The file must have `Fill_ID` and `Is_Valid` columns (0 for not valid, 1 for valid) and use a comma (`,`) as a separator.
 
 ```csv
 Fill_ID,Is_Valid
@@ -142,13 +142,13 @@ python src/process_new_raw_data.py new_fills_2025_raw.pkl new_fills_2025_cleaned
 ```
 (This command expects `new_fills_2025_raw.pkl` to be in `data/new_raw/` and will create `new_fills_2025_cleaned.pkl` in `data/interim/`)
 
-3: Make predictions on the newly processed data using your trained model and save features + predictions to `data/processed/`
+2: Make predictions on the newly processed data using your trained model and save features + predictions to `data/processed/`
 ```bash
 python src/predict_new_data.py new_fills_2025_cleaned.pkl new_fill_predictions_2025_for_analysis.pkl
 ```
 (This command expects `new_fills_2025_cleaned.pkl` to be in `data/interim/` and will create `new_fill_predictions_2025_for_analysis.pkl` in `data/processed/`)
 
-4: Analyze the distributions of features and predictions:
+3: Analyze the distributions of features and predictions:
 ```bash
 # To analyze new fill predictions:
 python src/analyze_predictions.py new_fill_predictions_2025_for_analysis.pkl
