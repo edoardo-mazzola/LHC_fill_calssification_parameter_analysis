@@ -53,6 +53,7 @@ To run the project, follow the steps here reported
 
 
 1:  **Raw Data (.pkl):** Place the `.pkl` file containing the raw fill time series in the `data/raw/` folder. (e.g.,`path/to/project/data/raw/original_data.pkl`). These data won't be loaded on the GitHub repository, as they are too large. Only files comprehending the necessary data would be included
+
 2:  **Manual Labels:** Create the `manual_fill_labels.csv` file in the `data/raw/` folder with the manual fill labels. The file must have `Fill_ID` and `Is_Valid` columns (0 for not valid, 1 for valid) and use a comma (`,`) as a separator.
 
 ```csv
